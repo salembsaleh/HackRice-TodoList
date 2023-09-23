@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.widget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make sure the container takes up the full height of the viewport */
+}
+
+.Dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+}

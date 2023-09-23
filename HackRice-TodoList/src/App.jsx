@@ -32,9 +32,6 @@ function App() {
           {widgets.map((widget, index) => (
             <div className="WidgetContainer" key={index}>
               {widget}
-              <button onClick={() => removeWidget(index)}>
-                Remove TodoList
-              </button>
             </div>
           ))}
         </div>

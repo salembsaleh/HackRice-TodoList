@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TodoList() {
+function TodoList({ removeWidget }) {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
@@ -36,6 +36,9 @@ function TodoList() {
           </li>
         ))}
       </ul>
+      <button onClick={removeWidget} className="removeButton">
+        Remove This TodoList
+      </button>
     </div>
   );
 }
