@@ -1,0 +1,68 @@
+/* TimerWidget.css */
+
+.Widget {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.Widget h2 {
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin-bottom: 20px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.3s;
+  stroke: white;
+}
+
+.progress-text {
+  font-size: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls label {
+  margin-bottom: 5px;
+}
+
+.controls input {
+  padding: 5px;
+}
+
+.controls button {
+  padding: 8px 16px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.controls button:not(:last-child) {
+  margin-bottom: 10px; /* Equal vertical spacing between buttons */
+}
+
+.controls button:hover {
+  background-color: #eee;
+}
+
+.removeButton {
+  margin-bottom: 0; /* Align with the buttons above */
+}
