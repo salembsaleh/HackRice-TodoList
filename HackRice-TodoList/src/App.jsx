@@ -46,11 +46,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Personalized Productivity Dashboard</h1>
+        <img src="https://i.ibb.co/6WhHVrn/logo.png" alt="logo" border="0" />
+        <h1>Productify</h1>
       </header>
       <div className="Widgets">
         <div className="WidgetSelector">
-          <h2>Available Widgets</h2>
+          <h2>Your Personalized Productivity Dashboard</h2>
           {showAddButton && (
             <button onClick={addTodoList}>Add To-Do List</button>
           )}
