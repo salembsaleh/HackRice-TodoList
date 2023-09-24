@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex; /* Use flexbox for centering and alignment */
+  flex-direction: column; /* Arrange children vertically */
 }
 
 .logo {
@@ -51,4 +53,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Allow widgets to wrap to the next line */
 }

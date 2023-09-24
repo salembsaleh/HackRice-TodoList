@@ -24,7 +24,13 @@ function App() {
   const addNewsWidget = () => {
     setWidgets([
       ...widgets,
+
       <NewsWidget key={Date.now()} removeWidget={() => removeWidget(widgets.length)} />,
+      <TodoList
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        showAddButton={setShowAddButton}
+      />,
     ]);
   };
   const addWeatherWidget = () => {
@@ -50,7 +56,6 @@ function App() {
           <h2>Available Widgets</h2>
           {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
           <button onClick={addNewsWidget}>Add News Widget</button>
-
           <button onClick={addWeatherWidget}>Add Weather Widget</button>
 
         </div>
