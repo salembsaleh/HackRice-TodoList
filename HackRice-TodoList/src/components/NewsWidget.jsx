@@ -12,7 +12,7 @@ const NewsWidget = ({ removeWidget }) => {
     axios
       .get(apiUrl)
       .then((response) => {
-        setNews(response.data.articles.slice(0, 3));
+        setNews(response.data.articles.slice(4, 7));
       })
       .catch((error) => {
         console.error("Error fetching news:", error);
