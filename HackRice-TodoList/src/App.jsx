@@ -16,6 +16,7 @@ function App() {
         key={Date.now()}
         removeWidget={() => removeWidget(widgets.length)}
         showAddButton={setShowAddButton}
+        widgetIndex={widgets.length} // Pass widgetIndex to TodoList
       />,
     ]);
   };
@@ -23,17 +24,22 @@ function App() {
   const addNewsWidget = () => {
     setWidgets([
       ...widgets,
-
       <NewsWidget
         key={Date.now()}
         removeWidget={() => removeWidget(widgets.length)}
+        widgetIndex={widgets.length} // Pass widgetIndex to NewsWidget
       />,
     ]);
   };
+
   const addWeatherWidget = () => {
     setWidgets([
       ...widgets,
-      <WeatherWidget key={Date.now()} removeWidget={removeWidget} />,
+      <WeatherWidget
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        widgetIndex={widgets.length} // Pass widgetIndex to WeatherWidget
+      />,
     ]);
   };
 

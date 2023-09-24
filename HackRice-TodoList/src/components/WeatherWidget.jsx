@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherWidget.css";
 
-function WeatherWidget({ removeWidget }) {
+const WeatherWidget = ({ removeWidget, widgetIndex }) => {
   const [city, setCity] = useState("New York"); // Default city
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -73,11 +73,14 @@ function WeatherWidget({ removeWidget }) {
           </p>
         </div>
       )}
-      <button onClick={removeWidget} className="RemoveButton">
+      <button
+        onClick={() => removeWidget(widgetIndex)}
+        className="RemoveButton"
+      >
         Remove
       </button>
     </div>
   );
-}
+};
 
 export default WeatherWidget;
