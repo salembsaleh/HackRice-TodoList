@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
+import WeatherWidget from "./components/weatherwidget";
 
 function App() {
   const [widgets, setWidgets] = useState([]);
@@ -9,6 +10,12 @@ function App() {
     setWidgets([
       ...widgets,
       <TodoList key={Date.now()} removeWidget={removeWidget} />,
+    ]);
+  };
+  const addWeatherWidget = () => {
+    setWidgets([
+      ...widgets,
+      <WeatherWidget key={Date.now()} removeWidget={removeWidget} />,
     ]);
   };
 
@@ -26,7 +33,7 @@ function App() {
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
           <button onClick={addTodoList}>Add To-Do List</button>
-          {/* Add buttons for other widgets here */}
+          <button onClick={addWeatherWidget}>Add Weather Widget</button>
         </div>
         <div className="Dashboard">
           {widgets.map((widget, index) => (
