@@ -1,23 +1,35 @@
-import React, { useState } from "react";
-import "./App.css";
-import TodoList from "./components/TodoList";
+import React, { useState } from 'react';
+import './App.css';
+import TodoList from './components/TodoList';
+import NewsWidget from './components/NewsWidget';
 
 function App() {
   const [widgets, setWidgets] = useState([]);
   const [showAddButton, setShowAddButton] = useState(true);
 
   const addTodoList = () => {
-    setShowAddButton(false); // Hide the "Add To-Do List" button
+    setShowAddButton(false);
     setWidgets([
       ...widgets,
-      <TodoList key={Date.now()} removeWidget={() => removeWidget(widgets.length)} showAddButton={setShowAddButton} />,
+      <TodoList
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        showAddButton={setShowAddButton}
+      />,
+    ]);
+  };
+
+  const addNewsWidget = () => {
+    setWidgets([
+      ...widgets,
+      <NewsWidget key={Date.now()} removeWidget={() => removeWidget(widgets.length)} />,
     ]);
   };
 
   const removeWidget = (widgetIndex) => {
     const updatedWidgets = widgets.filter((_, index) => index !== widgetIndex);
     setWidgets(updatedWidgets);
-    setShowAddButton(true); // Show the "Add To-Do List" button
+    setShowAddButton(true);
   };
 
   return (
@@ -29,7 +41,7 @@ function App() {
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
           {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
-          {/* Add buttons for other widgets here */}
+          <button onClick={addNewsWidget}>Add News Widget</button>
         </div>
         <div className="Dashboard">
           {widgets.map((widget, index) => (
