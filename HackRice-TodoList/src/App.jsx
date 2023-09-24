@@ -5,11 +5,13 @@ import WeatherWidget from "./components/weatherwidget";
 
 function App() {
   const [widgets, setWidgets] = useState([]);
+  const [showAddButton, setShowAddButton] = useState(true);
 
   const addTodoList = () => {
+    setShowAddButton(false); // Hide the "Add To-Do List" button
     setWidgets([
       ...widgets,
-      <TodoList key={Date.now()} removeWidget={removeWidget} />,
+      <TodoList key={Date.now()} removeWidget={() => removeWidget(widgets.length)} showAddButton={setShowAddButton} />,
     ]);
   };
   const addWeatherWidget = () => {
@@ -22,6 +24,7 @@ function App() {
   const removeWidget = (widgetIndex) => {
     const updatedWidgets = widgets.filter((_, index) => index !== widgetIndex);
     setWidgets(updatedWidgets);
+    setShowAddButton(true); // Show the "Add To-Do List" button
   };
 
   return (
@@ -32,7 +35,7 @@ function App() {
       <div className="Widgets">
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
-          <button onClick={addTodoList}>Add To-Do List</button>
+          {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
           <button onClick={addWeatherWidget}>Add Weather Widget</button>
         </div>
         <div className="Dashboard">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TodoList.css";
 
-function TodoList({ removeWidget }) {
+function TodoList({ removeWidget, showAddButton }) {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
@@ -15,6 +15,7 @@ function TodoList({ removeWidget }) {
   const handleRemoveTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
+    showAddButton(true); // Show the "Add To-Do List" button
   };
 
   return (
