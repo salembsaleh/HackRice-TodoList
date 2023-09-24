@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsWidget.css";
 
-const NewsWidget = ({ widgetId, removeWidget }) => {
+const NewsWidget = ({ removeWidget, widgetIndex }) => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,10 @@ const NewsWidget = ({ widgetId, removeWidget }) => {
           </li>
         ))}
       </ul>
-      <button onClick={() => removeWidget(widgetId)} className="removeButton">
+      <button
+        onClick={() => removeWidget(widgetIndex)}
+        className="removeButton"
+      >
         Remove
       </button>
     </div>

@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
@@ -7,24 +6,47 @@ import WeatherWidget from "./components/weatherwidget";
 
 function App() {
   const [widgets, setWidgets] = useState([]);
-  const [widgetId, setWidgetId] = useState(0);
+  const [showAddButton, setShowAddButton] = useState(true);
 
-  const addWidget = (component) => {
-    const id = widgetId + 1;
-    setWidgetId(id);
+  const addTodoList = () => {
+    setShowAddButton(false);
     setWidgets([
       ...widgets,
-      React.cloneElement(component, {
-        key: id,
-        widgetId: id,
-        removeWidget,
-      }),
+      <TodoList
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        showAddButton={setShowAddButton}
+        widgetIndex={widgets.length} // Pass widgetIndex to TodoList
+      />,
     ]);
   };
 
-  const removeWidget = (widgetId) => {
-    const updatedWidgets = widgets.filter((widget) => widget.key !== widgetId);
+  const addNewsWidget = () => {
+    setWidgets([
+      ...widgets,
+      <NewsWidget
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        widgetIndex={widgets.length} // Pass widgetIndex to NewsWidget
+      />,
+    ]);
+  };
+
+  const addWeatherWidget = () => {
+    setWidgets([
+      ...widgets,
+      <WeatherWidget
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        widgetIndex={widgets.length} // Pass widgetIndex to WeatherWidget
+      />,
+    ]);
+  };
+
+  const removeWidget = (widgetIndex) => {
+    const updatedWidgets = widgets.filter((_, index) => index !== widgetIndex);
     setWidgets(updatedWidgets);
+    setShowAddButton(true);
   };
 
   return (
@@ -35,15 +57,19 @@ function App() {
       <div className="Widgets">
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
-          <button onClick={() => addWidget(<TodoList />)}>
-            Add To-Do List
-          </button>
-          <button onClick={() => addWidget(<NewsWidget />)}>Add News</button>
-          <button onClick={() => addWidget(<WeatherWidget />)}>
-            Add Weather
-          </button>
+          {showAddButton && (
+            <button onClick={addTodoList}>Add To-Do List</button>
+          )}
+          <button onClick={addNewsWidget}>Add News</button>
+          <button onClick={addWeatherWidget}>Add Weather</button>
         </div>
-        <div className="Dashboard">{widgets}</div>
+        <div className="Dashboard">
+          {widgets.map((widget, index) => (
+            <div className="WidgetContainer" key={index}>
+              {widget}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
