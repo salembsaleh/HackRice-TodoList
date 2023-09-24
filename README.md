@@ -7,10 +7,9 @@ Your Personalized Productivity Dashboard
 * [Setup](#setup)
 
 ## General info
-Streamline your day with a powerful toolkit designed to enhance focus, organization, and information access. 
-Tailor your workspace with intuitive widgets, from to-do lists and live news updates to weather forecasts and financial trackers. 
-Boost your efficiency, stay informed, and seize control of your day with Productify. 
-Elevate your productivity, your way!
+* Tailor your workspace with intuitive widgets, from to-do lists and live news updates to weather trackers.
+* Boost your efficiency, stay informed, and seize control of your day with Productify.
+* Elevate your productivity, your way!
 	
 ## Technologies
 Project is created with:
