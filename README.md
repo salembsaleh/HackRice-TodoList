@@ -1,4 +1,4 @@
-#Productivy
+# Productify
 Your Personalized Productivity Dashboard
 
 ## Table of contents
