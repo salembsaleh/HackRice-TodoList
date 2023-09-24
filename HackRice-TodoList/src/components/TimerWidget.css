@@ -13,10 +13,29 @@
   margin-bottom: 10px;
 }
 
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin-bottom: 20px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.3s;
+  stroke: white;
+}
+
+.progress-text {
+  font-size: 20px;
+}
+
 .controls {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
 }
 
 .controls label {
@@ -33,32 +52,17 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.controls button:not(:last-child) {
+  margin-bottom: 10px; /* Equal vertical spacing between buttons */
 }
 
 .controls button:hover {
   background-color: #eee;
 }
 
-.progress-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 200px; /* Adjust height as needed */
-  position: relative; /* Position relative for absolute positioning */
-}
-
-.progress-ring {
-  transform: rotate(-90deg);
-}
-
-.progress-ring-circle {
-  transition: stroke-dashoffset 0.3s;
-}
-
-.progress-text {
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.removeButton {
+  margin-bottom: 0; /* Align with the buttons above */
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './TimerWidget.css';
 
 const TimerWidget = ({ removeWidget }) => {
+  const [inputTime, setInputTime] = useState('00:00');
   const [timeLeft, setTimeLeft] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -33,18 +34,20 @@ const TimerWidget = ({ removeWidget }) => {
     return ((totalTime - timeLeft) / totalTime) * 100;
   };
 
+  const handleInputChange = (event) => {
+    setInputTime(event.target.value);
+  };
+
+  const handleStart = () => {
+    const [minutes, seconds] = inputTime.split(':').map(part => parseInt(part, 10));
+    const newTotalTime = minutes * 60 + seconds;
+    setTotalTime(newTotalTime);
+    setTimeLeft(newTotalTime);
+  };
+
   return (
     <div className="Widget TimerWidget">
       <h2>Timer</h2>
-      <div className="controls">
-        <label htmlFor="timerLength">Timer Length (in seconds):</label>
-        <input
-          type="number"
-          id="timerLength"
-          value={totalTime}
-          onChange={(e) => setTotalTime(parseInt(e.target.value, 10))}
-        />
-      </div>
       <div className="progress-container">
         <svg className="progress-ring" width="120" height="120">
           <circle
@@ -61,8 +64,17 @@ const TimerWidget = ({ removeWidget }) => {
         <div className="progress-text">{formatTime(timeLeft)}</div>
       </div>
       <div className="controls">
+        <label htmlFor="timerLength">Timer Length (mm:ss):</label>
+        <input
+          type="text"
+          id="timerLength"
+          value={inputTime}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleStart}>Set Time</button>
+      </div>
+      <div className="controls">
         <button onClick={toggleTimer}>{isActive ? 'Pause' : 'Start'}</button>
-        <button onClick={() => setTimeLeft(totalTime)}>Reset</button>
         <button onClick={removeWidget} className="removeButton">
           Remove Timer
         </button>
