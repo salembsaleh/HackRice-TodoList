@@ -54,8 +54,8 @@ function App() {
           {showAddButton && (
             <button onClick={addTodoList}>Add To-Do List</button>
           )}
-          <button onClick={addNewsWidget}>Add News</button>
           <button onClick={addWeatherWidget}>Add Weather</button>
+          <button onClick={addNewsWidget}>Add News</button>
         </div>
         <div className="Dashboard">
           {widgets.map((widget, index) => (

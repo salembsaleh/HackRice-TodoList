@@ -21,7 +21,7 @@ const NewsWidget = ({ removeWidget }) => {
 
   return (
     <div className="Widget">
-      <h2>Top 5 News Headlines</h2>
+      <h2>News Headlines</h2>
       <ul>
         {news.map((article, index) => (
           <li key={index}>
@@ -32,7 +32,7 @@ const NewsWidget = ({ removeWidget }) => {
         ))}
       </ul>
       <button onClick={removeWidget} className="removeButton">
-        Remove News Widget
+        Remove
       </button>
     </div>
   );
