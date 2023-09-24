@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./TodoList.css";
 
 function TodoList({ removeWidget }) {
   const [tasks, setTasks] = useState([]);
@@ -37,7 +38,7 @@ function TodoList({ removeWidget }) {
         ))}
       </ul>
       <button onClick={removeWidget} className="removeButton">
-        Remove This TodoList
+        Remove To-Do List
       </button>
     </div>
   );
