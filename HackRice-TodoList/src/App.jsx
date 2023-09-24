@@ -4,17 +4,20 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [widgets, setWidgets] = useState([]);
+  const [showAddButton, setShowAddButton] = useState(true);
 
   const addTodoList = () => {
+    setShowAddButton(false); // Hide the "Add To-Do List" button
     setWidgets([
       ...widgets,
-      <TodoList key={Date.now()} removeWidget={removeWidget} />,
+      <TodoList key={Date.now()} removeWidget={() => removeWidget(widgets.length)} showAddButton={setShowAddButton} />,
     ]);
   };
 
   const removeWidget = (widgetIndex) => {
     const updatedWidgets = widgets.filter((_, index) => index !== widgetIndex);
     setWidgets(updatedWidgets);
+    setShowAddButton(true); // Show the "Add To-Do List" button
   };
 
   return (
@@ -25,7 +28,7 @@ function App() {
       <div className="Widgets">
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
-          <button onClick={addTodoList}>Add To-Do List</button>
+          {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
           {/* Add buttons for other widgets here */}
         </div>
         <div className="Dashboard">
