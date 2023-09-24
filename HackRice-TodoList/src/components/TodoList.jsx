@@ -34,13 +34,11 @@ function TodoList({ removeWidget, showAddButton }) {
         {tasks.map((task, index) => (
           <li key={index}>
             {task}
-            <button onClick={() => handleRemoveTask(index)}>Remove</button>
+            <button onClick={() => handleRemoveTask(index)}>X</button>
           </li>
         ))}
       </ul>
-      <button onClick={removeWidget} className="removeButton">
-        Remove To-Do List
-      </button>
+      <button onClick={removeWidget}>Remove</button>
     </div>
   );
 }

@@ -1,20 +1,10 @@
 /* src/components/TodoList.css */
-.Widget {
-  border-color: #f9f9f9;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-  margin: 10px;
-  min-width: 250px;
-  max-width: 300px;
-}
 
 .Widget h2 {
   margin-bottom: 10px;
 }
 
 input {
-  width: calc(100% - 16px); /* Adjusted width */
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ccc; /* Added border */
@@ -50,29 +40,10 @@ li {
   padding: 8px; /* Added padding */
 }
 
-li button {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-li button:hover {
-  background-color: #c82333;
-}
 /* Add this class for the remove button */
 .removeButton {
-  background-color: #dc3545; /* Different color for remove button */
-  color: #fff;
-  border: none;
   border-radius: 4px;
   padding: 8px 12px;
   cursor: pointer;
   margin-top: 10px; /* Adjusted margin */
-}
-
-.removeButton:hover {
-  background-color: #c82333;
 }

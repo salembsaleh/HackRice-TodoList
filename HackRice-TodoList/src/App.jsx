@@ -11,7 +11,11 @@ function App() {
     setShowAddButton(false); // Hide the "Add To-Do List" button
     setWidgets([
       ...widgets,
-      <TodoList key={Date.now()} removeWidget={() => removeWidget(widgets.length)} showAddButton={setShowAddButton} />,
+      <TodoList
+        key={Date.now()}
+        removeWidget={() => removeWidget(widgets.length)}
+        showAddButton={setShowAddButton}
+      />,
     ]);
   };
   const addWeatherWidget = () => {
@@ -35,7 +39,9 @@ function App() {
       <div className="Widgets">
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
-          {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
+          {showAddButton && (
+            <button onClick={addTodoList}>Add To-Do List</button>
+          )}
           <button onClick={addWeatherWidget}>Add Weather Widget</button>
         </div>
         <div className="Dashboard">
