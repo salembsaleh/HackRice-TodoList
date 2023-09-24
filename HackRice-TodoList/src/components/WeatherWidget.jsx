@@ -51,7 +51,7 @@ const WeatherWidget = ({ removeWidget, widgetIndex }) => {
 
   return (
     <div className="Widget">
-      <h2>Weather</h2>
+      <h2>Weather Widget</h2>
       <input
         type="text"
         value={city}
