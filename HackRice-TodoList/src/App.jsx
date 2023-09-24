@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import './App.css';
-import TodoList from './components/TodoList';
-import NewsWidget from './components/NewsWidget';
+import React, { useState } from "react";
+import "./App.css";
+import TodoList from "./components/TodoList";
+import NewsWidget from "./components/NewsWidget";
 import WeatherWidget from "./components/weatherwidget";
 
 function App() {
@@ -25,11 +24,9 @@ function App() {
     setWidgets([
       ...widgets,
 
-      <NewsWidget key={Date.now()} removeWidget={() => removeWidget(widgets.length)} />,
-      <TodoList
+      <NewsWidget
         key={Date.now()}
         removeWidget={() => removeWidget(widgets.length)}
-        showAddButton={setShowAddButton}
       />,
     ]);
   };
@@ -54,10 +51,11 @@ function App() {
       <div className="Widgets">
         <div className="WidgetSelector">
           <h2>Available Widgets</h2>
-          {showAddButton && <button onClick={addTodoList}>Add To-Do List</button>}
-          <button onClick={addNewsWidget}>Add News Widget</button>
-          <button onClick={addWeatherWidget}>Add Weather Widget</button>
-
+          {showAddButton && (
+            <button onClick={addTodoList}>Add To-Do List</button>
+          )}
+          <button onClick={addNewsWidget}>Add News</button>
+          <button onClick={addWeatherWidget}>Add Weather</button>
         </div>
         <div className="Dashboard">
           {widgets.map((widget, index) => (
