@@ -1,6 +1,8 @@
 # Productify
 Your Personalized Productivity Dashboard
 
+[Devpost](https://devpost.com/software/productify-rhgv07)
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
