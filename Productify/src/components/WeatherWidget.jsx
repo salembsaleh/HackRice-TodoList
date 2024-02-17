@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherWidget.css";
-import { WEATHER_API_KEY } from "../config";
-
 function WeatherWidget({ widgetId, removeWidget }) {
   const [city, setCity] = useState("New York"); // Default city
   const [weatherData, setWeatherData] = useState(null);
@@ -15,7 +13,9 @@ function WeatherWidget({ widgetId, removeWidget }) {
 
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
+            import.meta.env.VITE_WEATHER_API_KEY
+          }`
         );
 
         if (!response.ok) {
