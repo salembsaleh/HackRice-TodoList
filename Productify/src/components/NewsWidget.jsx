@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsWidget.css";
+import { NEWS_API_KEY } from "../config";
 
 const NewsWidget = ({ removeWidget }) => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    const apiKey = "5aebf04ccc25485f97bc5809d2c1b182"; // Replace with your actual API key
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`;
 
     axios
       .get(apiUrl)
