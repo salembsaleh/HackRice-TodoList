@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./WeatherWidget.css";
+import "./weatherwidget.css";
 function WeatherWidget({ widgetId, removeWidget }) {
   const [city, setCity] = useState("New York"); // Default city
   const [weatherData, setWeatherData] = useState(null);
